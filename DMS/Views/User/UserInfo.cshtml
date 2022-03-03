@@ -1,0 +1,33 @@
+﻿@model DMS.Models.User
+@{
+    ViewBag.Title = "UserInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<h3>UserInfo</h3>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department Location</th>
+    </tr>
+
+    <tr>
+        <td>@Model.UserId</td>
+        <td>@Model.UserName</td>
+        <td>@Model.DepartmentName</td>
+    </tr>
+</table>
+

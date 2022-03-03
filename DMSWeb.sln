@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMS", "DMS\DMS.csproj", "{2C488F54-0C92-4870-8D2F-ABB15D79BEEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C488F54-0C92-4870-8D2F-ABB15D79BEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C488F54-0C92-4870-8D2F-ABB15D79BEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C488F54-0C92-4870-8D2F-ABB15D79BEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C488F54-0C92-4870-8D2F-ABB15D79BEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ABC9E5F-C7EA-4854-8744-609FEC12C96C}
+	EndGlobalSection
+EndGlobal
