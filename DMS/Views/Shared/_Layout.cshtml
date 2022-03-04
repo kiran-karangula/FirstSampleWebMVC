@@ -4,37 +4,169 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - DMS Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/navigation.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".sidebar-menu >li.have-children a").on("click", function (i) {
+                i.preventDefault();
+                if (!$(this).parent().hasClass("active")) {
+                    $(".main-menu li ul").slideUp();
+                    $(this).next().slideToggle();
+                    $(".main-menu li").removeClass("active");
+                    $(this).parent().addClass("active");
+                }
+                else {
+                    $(this).next().slideToggle();
+                    $(".main-menu li").removeClass("active");
+                }
+            });
+
+            $(".main-menu").on("mouseleave", function () {
+                $('li.have-children').removeClass("active");
+                $('li.have-children .submenu').hide();
+            });
+
+            $('.submenu li,#listDashboard').click(function (event) {
+                $(".container").hide()
+                $("#" + $(this).attr('id') + "Container").show();
+            });
+
+            //$('#example').DataTable();
+        });
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("DMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("User", "UserInfo", "User")</li>
-                    <li>@Html.ActionLink("Department", "UserInfo", "User")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
+    <div class="area">
+        @RenderBody() 
+        <footer>
+            
+        </footer>
+
+        <nav class="main-menu">
+            <ul class="sidebar-menu no-children">
+                <li id="listDashboard">
+                    <a href="#" class="dashboardlist">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Dashboard
+                        </span>
+
+                    </a>
+
+
+                </li>
+                <li class="have-children">
+                    <a href="#">
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Department
+                        </span>
+                    </a>
+                    <ul class="submenu collapse list-unstyled" id="department_Submenu">
+                        <li id="listDepartment">
+                            <a href="#" class="departmentlist">View Department</a>
+                        </li>
+                        <li id="addDepartment">
+                            <a href="#" class="addDepartment">Add Department</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="have-children">
+                    <a href="#">
+                        <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            User
+                        </span>
+                    </a>
+                    <ul class="submenu collapse list-unstyled" id="user_Submenu">
+                        <li id="listUser">
+                            <a href="#" class="userlist">View User</a>
+                        </li>
+                        <li id="addUser">
+                            <a href="#" class="addUser">Add User</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="have-children">
+                    <a href="#">
+                        <i class="fa fa-folder-open fa-2x"></i>
+                        <span class="nav-text">
+                            File Upload
+                        </span>
+                    </a>
+
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Reports
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            Documentation
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     </div>
-    <div class="container body-content">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("DMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("User", "UserInfo", "User")</li>
+                        <li>@Html.ActionLink("Department", "UserInfo", "User")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    @*<div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - DMS Application</p>
         </footer>
-    </div>
+    </div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

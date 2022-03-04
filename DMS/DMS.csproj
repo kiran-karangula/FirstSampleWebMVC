@@ -134,8 +134,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ContentLayout.css" />
+    <Content Include="Content\css\addUser.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\login-page.css" />
+    <Content Include="Content\css\navigation.css" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -149,6 +152,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
